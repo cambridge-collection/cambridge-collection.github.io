@@ -73,7 +73,6 @@ Ordinarily, you should not need to change this config to get the viewer running 
 
 - Check out sample data repo: 
 
-  *[TODO: Create this sample data set, note this does not exist at the moment]*
   https://github.com/cambridge-collection/dl-data-samples.git
   
   This is a small sample data set containing:
@@ -88,14 +87,18 @@ Ordinarily, you should not need to change this config to get the viewer running 
 
 - Custom Configuration
 
-    You can use the environment variables: 
+    If you have checkout out the data repository at the same level as the viewer you should not need to 
+    alter the configuration, however if you have a different setup you can use the environment variables: 
     
     - CUDL_VIEWER_CONFIG should point to local path for the file cudl-global.properties
     - CUDL_VIEWER_DATA should point to local path of cudl-data (containing JSON and Data subdirs)
     - CUDL_VIEWER_CONTENT should point to local path of cudl-viewer-content (HTML content) 
     - CUDL_DB_HOST_PORT port for the local db 
     
-    *[TODO: We can default to use the above sample data set and add an extra file:cudl-defaults.env 
+    See the docker-compose.yml for the default values for these.
+    
+    *[TODO: CUDL VIEWER branch 'sample-data-source' uses the sample data.  We probably want to 
+    merge into master and add an extra file:cudl-defaults.env 
     to point to cudl data for Cambridge developers, etc]*
 
 ## Maven Build
