@@ -57,13 +57,41 @@ Replacing /usr/lib/jvm/java-8-openjdk-amd64 with the path where your version is 
 
 ### Maven Dependencies
 
-CUDL has its own Maven repository stored on AWS S3 where the CUDL-specific dependencies are stored for access by Maven.
-At the moment this is restricted so dependencies, like cudl-viewer-ui and cudl-embedded-viewer need to be downloaded and 
-build separately.
+CUDL has its own Maven repository stored on GitHub where the CUDL-specific dependencies are stored for access by Maven.
+This should be open and you should be able to download dependencies.  
+You can setup the repo in your ~/.m2/settings.xml file as follows:
 
-*[TODO  Setup public MVN repo with access to build versions of dependencies,
- so these do not need to be build separately. ]*
-
+    <activeProfiles>
+    <activeProfile>github</activeProfile>
+    </activeProfiles>
+    
+    <profiles>
+    <profile>
+      <id>github</id>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2</url>
+        </repository>
+        <repository>
+          <id>github</id>
+          <url>https://maven.pkg.github.com/cambridge-collection/*</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+    </profile>
+    </profiles>
+    
+    <servers>
+    <server>
+    <id>github</id>
+    <username>USERNAME</username>
+    <password>TOKEN</password>
+    </server>
+    </servers>
+    </settings>
 
 ### Data dependencies
 
@@ -82,25 +110,12 @@ Ordinarily, you should not need to change this config to get the viewer running 
    - DATABASE export
    - HTML CONTENT
    
-   
-## Configuration
+The cudl-viewer will need to be checked out at the same level as the dl-data-samples.
 
-- Custom Configuration
+- Check out cudl-viewer from:
 
-    If you have checkout out the data repository at the same level as the viewer you should not need to 
-    alter the configuration, however if you have a different setup you can use the environment variables: 
-    
-    - CUDL_VIEWER_CONFIG should point to local path for the file cudl-global.properties
-    - CUDL_VIEWER_DATA should point to local path of cudl-data (containing JSON and Data subdirs)
-    - CUDL_VIEWER_CONTENT should point to local path of cudl-viewer-content (HTML content) 
-    - CUDL_DB_HOST_PORT port for the local db 
-    
-    See the docker-compose.yml for the default values for these.
-    
-    *[TODO: CUDL VIEWER branch 'sample-data-source' uses the sample data.  We probably want to 
-    merge into master and add an extra file:cudl-defaults.env 
-    to point to cudl data for Cambridge developers, etc]*
-
+  https://github.com/cambridge-collection/cudl-viewer.git
+  
 ## Maven Build
    
    Open a shell on your machine, or a Terminal in IntelliJ IDEA. (If you cannot see the Terminal
@@ -121,9 +136,6 @@ Ordinarily, you should not need to change this config to get the viewer running 
     $ docker-compose up
    
    while in the project directory.
-   
-   (Legacy instructions: The CUDL-Viewer README gives instructions to use tomcat7 and cargo that no longer work.)
-   *[TODO: Update README in viewer]*
    
    Access the app at http://localhost:8888/ and check that it is working.
    
