@@ -93,6 +93,10 @@ You can setup the repo in your ~/.m2/settings.xml file as follows:
     </servers>
     </settings>
 
+Now you will need to update this file to replace the USERNAME and TOKEN text with your own github account username
+and access token. See setting up an access token here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+
+
 ### Data dependencies
 
 Data (TEI and JSON), some HTML content and images served by the image servers are not managed by Maven and their 
@@ -134,9 +138,13 @@ The cudl-viewer will need to be checked out at the same level as the dl-data-sam
    
    The CUDL app is set up to run locally using Docker Compose. To run the app with the default configuration file docker-compose.yml:
    
-    $ docker-compose up
+    $ docker-compose --env-file sample-data.env up
    
-   while in the project directory.
+   while in the project directory.  
+   
+   If you have any problems look at the sample-data.env file
+   and check that the variables CUDL_VIEWER_DATA and CUDL_VIEWER_CONTENT point to the paths within 
+   your sample data set, you checked out in the previous step.
    
    Access the app at [http://localhost:8888/](http://localhost:8888/) and check that it is working.
    
