@@ -96,31 +96,36 @@ You can setup the repo in your ~/.m2/settings.xml file as follows:
 Now you will need to update this file to replace the USERNAME and TOKEN text with your own github account username
 and access token. See setting up an access token here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 
+## Setting up the viewer
 
-### Data dependencies
+- Check out cudl-viewer from:
 
-Data (TEI and JSON), some HTML content and images served by the image servers are not managed by Maven and their 
-resources are configured in docker/cudl-global.properties for local development deployment. 
-Ordinarily, you should not need to change this config to get the viewer running on your local machine. 
+  https://github.com/cambridge-collection/cudl-viewer.git
 
-- Check out sample data repo: 
 
-  https://github.com/cambridge-collection/dl-data-samples.git
-  
-  This is a small sample data set containing:
+### Setup sample data
+
+Data (TEI and JSON), some HTML content and images served by the image servers are not managed by Maven and their
+resources are configured in docker/cudl-global.properties for local development deployment.
+Ordinarily, you should not need to change this config to get the viewer running on your local machine.
+
+The sample data is linked as a git submodule if the cudl-viewer, so we need to initalise
+it and download the data.  Do this with the following commands:
+
+    git submodule init
+    git submodule update
+
+Check the git submodules are present: dl-data-samples should be at:
+
+    docker/db/dl-data-samples
+
+The sample data is a small sample data set containing:
    - TEI
    - JSON
    - TIFF images (blank samples)
    - DATABASE export
    - HTML CONTENT
    
-## Setting up the viewer 
-
-The cudl-viewer will need to be checked out at the same level as the dl-data-samples.
-
-- Check out cudl-viewer from:
-
-  https://github.com/cambridge-collection/cudl-viewer.git
   
 ### Maven Build   
    Open a shell on your machine, or a Terminal in IntelliJ IDEA. (If you cannot see the Terminal
