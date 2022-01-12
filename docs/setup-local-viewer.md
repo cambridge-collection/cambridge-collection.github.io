@@ -112,8 +112,8 @@ Ordinarily, you should not need to change this config to get the viewer running 
 The sample data is linked as a git submodule if the cudl-viewer, so we need to initalise
 it and download the data.  Do this with the following commands:
 
-    git submodule init
-    git submodule update
+    git submodule init docker/db/dl-data-samples
+    git submodule update docker/db/dl-data-samples
 
 Check the git submodules are present: dl-data-samples should be at:
 
