@@ -152,7 +152,7 @@ The sample data is a small sample data set containing:
    your sample data set, you checked out in the previous step.
    
    Access the app at [http://localhost:8888/](http://localhost:8888/) and check that it is working.
-   
+
 ## Image Server
 
 The image server that zoomable image tiles come from is configured in the cudl-global.properties
@@ -161,6 +161,40 @@ We are using the IIIF image server [IIPImage](https://iipimage.sourceforge.io/).
 
     imageServer=https://images.lib.cam.ac.uk/
     IIIFImageServer=https://images.lib.cam.ac.uk/iiif/
+
+## Using your own data
+
+Once you have the viewer working on your system you can take a look at the sample
+data it's using under the directory `docker/db/dl-data-samples`. Under this there
+are two directories:
+
+    source-data 
+    processed-data
+
+Inside the source-data directory the files use the format defined in 
+[this schema](https://github.com/cambridge-collection/cudl-package-schemas/tree/main/JSON-package-format).
+It will be the format which you use to define the collections and items with the digital library. For items
+this contains TEI data.
+
+The processed-data directory contains these files after they have been processed to be more suitable for the
+viewer to read. You may notice for example the item data is now in json format. WARNING the format of this 
+data is likely to change over time as the viewer itself changes. 
+
+To test out your data you may want to first have a look at the processed data to see how affects the viewer.  You can make
+edits directly to this data and then perform the following commands to reset the data and load a fresh 
+
+    docker-compose --env-file sample-data.env down
+    docker image rm cudl-viewer_cudl-db:latest
+    docker-compose --env-file sample-data.env up
+
+you can then see what affect those changes have had.  You may want to temporarily 
+convert some items to this JSON format for testing, and we have an XSLT script that does
+this (link coming soon).
+
+To use your own data in production we recommend you use convert your data into the format as defined in [this schema](https://github.com/cambridge-collection/cudl-package-schemas/tree/main/JSON-package-format) 
+to prevent any problems if the processed-data format changes.  Once in this format you can have a look at the tools we have for 
+converting this source-data into a processed form.  These tools are currently still being developed and more information will
+be coming on setting up the data processing workflow.
 
 
 ## Further Information
