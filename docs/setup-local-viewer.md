@@ -60,37 +60,39 @@ Replacing /usr/lib/jvm/java-8-openjdk-amd64 with the path where your version is 
 CUDL has its own Maven repository stored on GitHub where the CUDL-specific dependencies are stored for access by Maven.
 This should be open and you should be able to download dependencies.  
 You can setup the repo in your ~/.m2/settings.xml file as follows:
-
-    <activeProfiles>
-    <activeProfile>github</activeProfile>
-    </activeProfiles>
     
-    <profiles>
-    <profile>
-      <id>github</id>
-      <repositories>
-        <repository>
-          <id>central</id>
-          <url>https://repo1.maven.org/maven2</url>
-        </repository>
-        <repository>
+    <?xml version="1.0" encoding="UTF-8"?>
+    <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+      <activeProfiles>
+        <activeProfile>github</activeProfile>
+      </activeProfiles>
+      <profiles>
+        <profile>
           <id>github</id>
-          <url>https://maven.pkg.github.com/cambridge-collection/*</url>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
-        </repository>
-      </repositories>
-    </profile>
-    </profiles>
-    
-    <servers>
-    <server>
-    <id>github</id>
-    <username>USERNAME</username>
-    <password>TOKEN</password>
-    </server>
-    </servers>
+          <repositories>
+            <repository>
+              <id>central</id>
+              <url>https://repo1.maven.org/maven2</url>
+            </repository>
+            <repository>
+              <id>github</id>
+              <url>https://maven.pkg.github.com/cambridge-collection/*</url>
+              <snapshots>
+                <enabled>true</enabled>
+              </snapshots>
+            </repository>
+          </repositories>
+        </profile>
+      </profiles>
+      <servers>
+        <server>
+          <id>github</id>
+          <username>USERNAME</username>
+          <password>TOKEN</password>
+        </server>
+      </servers>
     </settings>
 
 Now you will need to update this file to replace the USERNAME and TOKEN text with your own github account username
