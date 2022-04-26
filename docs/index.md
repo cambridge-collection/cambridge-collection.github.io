@@ -2,7 +2,8 @@
 
 Welcome to the code repository for Cambridge Digital Collection Platform. 
 
-This houses the code for [Cambridge Digital Library](https://cudl.lib.cam.ac.uk),  
+This houses the code for projects developed by the teams at the Cambridge University Library including
+Cambridge Digital Collection Platform which underpins the [Cambridge Digital Library](https://cudl.lib.cam.ac.uk),  
 [Manchester Digital Collections](https://www.digitalcollections.manchester.ac.uk/),
 among others. It is a platform that takes source metadata and images and 
 provides a system for processing these into a website for display and discovery, 
