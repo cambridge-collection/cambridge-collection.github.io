@@ -3,8 +3,8 @@
 Welcome to the code repository for Cambridge Digital Collection Platform. 
 
 This houses the code for projects developed by the teams at the Cambridge University Library including
-Cambridge Digital Collection Platform which underpins the [Cambridge Digital Library](https://cudl.lib.cam.ac.uk),  
-[Manchester Digital Collections](https://www.digitalcollections.manchester.ac.uk/),
+Cambridge Digital Collection Platform which underpins the [Cambridge Digital Library](https://cudl.lib.cam.ac.uk), 
+[Manchester Digital Collections](https://www.digitalcollections.manchester.ac.uk/) and [Lancaster Digital Collections](https://digitalcollections.lancaster.ac.uk/)
 among others. It is a platform that takes source metadata and images and 
 provides a system for processing these into a website for display and discovery, 
 with [IIIF](https://iiif.io) capability.
@@ -18,6 +18,9 @@ planning on adding to them, and welcome any contributions both to the code and t
 Take a look at the
 [architecture overview](arch-overview.md)
 which shows the role of the different repositories and how they are connected. 
+
+## Responsive Data Loading
+The [content-editor](content-editor.md) shows how the data is loaded into the system in a responsive and easy to use system, so it can be previewed in seconds before publishing.
 
 ## Where do I get started?
 
