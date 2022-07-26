@@ -25,7 +25,7 @@ The Java editor webapp that provides this interface can be found at:
 [https://github.com/cambridge-collection/dl-loading-ui](https://github.com/cambridge-collection/dl-loading-ui)
 
 The editor is directly connected to data in an S3 bucket, which means that as
-soon as the data it saved, it takes only sea couple of seconds for the data to be automatically 
+soon as the data is saved, it takes only a couple of seconds for the data to be automatically 
 converted from the stable and human readable source data format, into the format useable by the viewer.
 It uses the process below:
 
