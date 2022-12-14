@@ -12,15 +12,15 @@ This will get you the latest package that is supported by your OS version. In Ub
 out of date (v. 2.17.1). If you prefer to install the latest version of git following 
 the instructions [here](https://itsfoss.com/install-git-ubuntu/).
 
-- Java 8 JDK
+- Java 11 JDK
 
-        $ sudo apt-get install openjdk-8-jdk
+        $ sudo apt-get install openjdk-11-jdk
 
-Make sure the JAVA_HOME environmental variable points to your installation of openjdk-8-jdk. For example,
+Make sure the JAVA_HOME environmental variable points to your installation of openjdk-11-jdk. For example,
  add this line to your /etc/environment file (replacing the path with the path where your JDK is 
  installed):
 
-    JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+        JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
 - Apache Maven 3.1+
 
@@ -35,7 +35,7 @@ See the official instructions [Install Docker Engine - Community](https://docs.d
     
 ### JDK Maven Toolchain
 
-To make sure that Java 1.8 is used to build the artefacts, you need to configure the location
+To make sure that Java 1.11 is used to build the artefacts, you need to configure the location
  in the ~/.m2/toolchains.xml file:
 
     <?xml version="1.0" encoding="UTF8"?>
@@ -44,16 +44,16 @@ To make sure that Java 1.8 is used to build the artefacts, you need to configure
       <toolchain>
         <type>jdk</type>
         <provides>
-          <version>1.8</version>
+          <version>1.11</version>
           <vendor>openjdk</vendor>
         </provides>
         <configuration>
-          <jdkHome>/usr/lib/jvm/java-8-openjdk-amd64</jdkHome>
+          <jdkHome>/usr/lib/jvm/java-11-openjdk-amd64</jdkHome>
         </configuration>
       </toolchain>
     </toolchains>
 
-Replacing /usr/lib/jvm/java-8-openjdk-amd64 with the path where your version is installed. 
+Replacing /usr/lib/jvm/java-11-openjdk-amd64 with the path where your version is installed. 
 
 ### Maven Dependencies
 
