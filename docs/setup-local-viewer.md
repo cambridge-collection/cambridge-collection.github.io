@@ -99,7 +99,7 @@ You can setup the repo in your `~/.m2/settings.xml` file as follows:
 ```
 
 Now you will need to update this file to replace the `GITHUB_USERNAME` text with your own GitHub account username and replace the `GITHUB_PAT` text 
-with a GitHub Personal Access Token (classic, not fine-grained) with repo permissions. See [Creating a Personal Access Token (classic)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+with a GitHub Personal Access Token (classic, not fine-grained) with repo and packages permissions. See [Creating a Personal Access Token (classic)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 ## Setting up the viewer
 
