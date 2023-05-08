@@ -107,6 +107,12 @@ with a GitHub Personal Access Token (classic, not fine-grained) with repo and pa
 
   https://github.com/cambridge-collection/cudl-viewer.git
 
+NOTE: If you have problems cloning the repo, you may need to comment out the
+**[submodule "docker/db/snapshots"]** parts of the .gitmodules file.
+
+Also, we recommend you use the **iiif_images_2023** branch from git as this one 
+supports IIIF images in the main view winidow.  The main branch is still using dzi format
+images which will be phased out soon.
 
 ### Setup sample data
 
@@ -207,4 +213,4 @@ be coming on setting up the data processing workflow.
 For further information on debugging and developing using the cudl-viewer 
 see [Developing and Debugging the Viewer](./developing-debugging-viewer.md).
 
-
+For information on setting up a local image server see [Setting up a local image server](./setup-local-image-server.md).
