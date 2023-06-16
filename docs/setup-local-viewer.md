@@ -125,7 +125,7 @@ The sample data is linked as a git submodule of the cudl-viewer, so we need to i
 it and download the data.  Do this with the following commands:
 
     $ git submodule init docker/db/dl-data-samples
-    $ git submodule update docker/db/dl-data-samples
+    $ git submodule update --remote --merge docker/db/dl-data-samples
 
 Check the git submodules are present: dl-data-samples should be at:
 
