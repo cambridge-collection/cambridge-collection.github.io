@@ -16,6 +16,7 @@ This will get you the latest stable package that is supported by your OS version
 
         $ sudo apt-get install openjdk-11-jdk
 
+
 Make sure the `JAVA_HOME` environmental variable points to your installation of `openjdk-11-jdk`. For example,
  add this line to your `/etc/environment` file (replacing the path with the path where your JDK is 
  installed):
@@ -34,6 +35,7 @@ Instructions to [Install Docker Engine on Ubuntu](https://docs.docker.com/engine
     
 ### JDK Maven Toolchain
 
+
 To make sure that Java 11 is used to build the artefacts, you need to configure the location
  in the `~/.m2/toolchains.xml` file:
 
@@ -44,17 +46,18 @@ To make sure that Java 11 is used to build the artefacts, you need to configure 
     <toolchain>
         <type>jdk</type>
         <provides>
-            <version>11</version>
-            <vendor>openjdk</vendor>
+          <version>1.11</version>
+          <vendor>openjdk</vendor>
         </provides>
         <configuration>
-            <jdkHome>/usr/lib/jvm/java-11-openjdk-amd64</jdkHome>
+          <jdkHome>/usr/lib/jvm/java-11-openjdk-amd64</jdkHome>
         </configuration>
     </toolchain>
 </toolchains>
 ```
 
-Replace `/usr/lib/jvm/java-8-openjdk-amd64` with the path where your version is installed. 
+Replacing /usr/lib/jvm/java-11-openjdk-amd64 with the path where your version is installed. 
+
 
 ### Maven Dependencies
 
