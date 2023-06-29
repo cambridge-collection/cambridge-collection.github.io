@@ -30,7 +30,7 @@ Make sure the `JAVA_HOME` environmental variable points to your installation of 
 
 Instructions to [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/). Installation instructions for other operating systems are also available there. This will install Docker Engine, Docker CLI and the Docker Compose plugin. We don’t recommend that you use Docker Desktop for Linux, though this is probably fine for other operating systems.
 
-##GitHub access
+- GitHub access
 
 In order to connect to GitHub securely, configure your account to use a new (or existing) SSH key and add it to your account. [Instructions are on GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account/).
 
@@ -156,13 +156,15 @@ The sample data is a small sample data set containing:
    
    If you are using Ubuntu, you may get the error "IllegalState Could not find a valid Docker envi..." after running $mvn clean package. This is caused by Docker being unable to ask for permission to create containers at runtime. To run Docker without being a root user, create a Docker group and add a connected user running the commands below: 
    
-   $sudo groupadd docker
-   $sudo gpasswd -a $USER docker
-   $sudo service docker restart
+    $ sudo groupadd docker
+
+    $ sudo gpasswd -a $USER docker
+
+    $ sudo service docker restart
    
    Run a docker command to test e.g.:
    
-   $ docker ps
+    $ docker ps
    
    If you get a permission error, re-start the computer which should fix it. More information in this [StackOverflow thread](https://stackoverflow.com/questions/61108655/test-container-test-cases-are-failing-due-to-could-not-find-a-valid-docker-envi)
 
