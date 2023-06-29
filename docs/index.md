@@ -27,6 +27,9 @@ The [content-editor](content-editor.md) shows how the data is loaded into the sy
 First take a look at our guide to [setting up a local viewer version](setup-local-viewer.md) using docker-compose. 
 This will get a local version of the platform on your local machine.
 
+After you may want to look at the instructions on [setting up a local image server](setup-local-image-server.md).
+and connecting it to the viewer. 
+
 ## Contributions
 Why not help us out by getting involved and contributing, we welcome pull requests for code or documentation.  
 Take a look at our [contribution guidelines for this project](../CONTRIBUTING.md).
