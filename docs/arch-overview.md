@@ -1,11 +1,39 @@
 # Architecture Overview
 
-CUDL is written in Java on Spring framework (CUDL-Viewer) with a JavaScript frontend
- (CUDL-Viewer-UI), PostgreSQL database, JSON metadata (CUDL-Data) and using XTF for 
- search (CUDL-XTF). Below is an overview of the application architecture:
+The CDCP platform is based on file data.  So you can start with a folder of data (the source data) 
+in a specific, simple format, see https://github.com/cambridge-collection/dl-data-samples . We use TEI for item data, 
+JSON / HTML for collection data and TIFF for our image data.
 
-![CUDL Overview](images/DL-Overview-01.png)
-![CUDL Overview](images/DL-Overview-02.png)
-![CUDL Overview](images/DL-Overview-03.png)
+That data is the automatically converted in real time into the processed data, which is easy for the 
+application to read.
+
+![CDCP Intro data.svg](images%2FCDCP%20Intro%20data.svg)
+
+This is done using our AWS pipeline (see https://github.com/cambridge-collection/cudl-terraform)
+or you can use our XSLT and build your own pipeline https://github.com/cambridge-collection/cudl-data-processing-xslt).
+
+The processed data is read by a number of applications, which provide the functionality 
+for the viewer. (NOTE: Currently there is also a small DB, but this will be retired soon).
+
+![CDCP Intro applications (1).svg](images%2FCDCP%20Intro%20applications%20%281%29.svg)
+
+## Getting Started
+
+Have a look at the cudl-viewer repo: https://github.com/cambridge-collection/cudl-viewer
+We still have some work to get an easy all in one build, so you may have a talk to us so we can let you know which branch to use. 
+But you should be able to start up with the test data on the main branch.
 
 
+## OPTIONAL Enhancements
+
+We also have a content loader which edits the data in the source folder, allowing non-expert users 
+to edit items and collections and these changes are reflected a few seconds later on the processed data + 
+linked viewer website. See our [content-editor.md](content-editor.md) section for more info.
+
+![CDCP Intro - Content loader (1).svg](images%2FCDCP%20Intro%20-%20Content%20loader%20%281%29.svg)
+
+We also have an extension to the processing flow to allow automatic generation of transcriptions by using the 
+IIIF manifest the platform provides to read into the Transkribus Expert client, and export in TEI 
+format.  Code for this is also under our pipeline terraform: https://github.com/cambridge-collection/cudl-terraform
+
+![CDCP Intro - Transkribus.svg](images%2FCDCP%20Intro%20-%20Transkribus.svg)
