@@ -17,10 +17,15 @@ for the viewer. (NOTE: Currently there is also a small DB, but this will be reti
 
 ![CDCP Intro applications (1).svg](images%2FCDCP%20Intro%20applications%20%281%29.svg)
 
+What does the data look like?  It has a simple hierarchy and is easy to read JSON data, with 
+item data in TEI. A collection can have multiple items, and items can be in more than one collection.
+
+![Simple CUDL Dependency Graph Example.svg](images%2FSimple%20CUDL%20Dependency%20Graph%20Example.svg)
+
 So you can edit the source data, so have different title and themes, and override the css, 
 so by just editing the data and not having to recompile the site you can get lots of different looks,
 and different collection and item data too.
-
+![Simple CUDL Dependency Graph Example.svg](images%2FSimple%20CUDL%20Dependency%20Graph%20Example.svg)
 ![differentdata.png](images%2Fdifferentdata.png)
 ## Getting Started
 
