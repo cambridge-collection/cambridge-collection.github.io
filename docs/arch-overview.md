@@ -23,6 +23,7 @@ Have a look at the cudl-viewer repo: https://github.com/cambridge-collection/cud
 We still have some work to get an easy all in one build, so you may have a talk to us so we can let you know which branch to use. 
 But you should be able to start up with the test data on the main branch.
 
+For more details see: [setup-local-viewer.md](setup-local-viewer.md)
 
 ## OPTIONAL Enhancements
 
