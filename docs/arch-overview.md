@@ -25,7 +25,6 @@ item data in TEI. A collection can have multiple items, and items can be in more
 So you can edit the source data, so have different title and themes, and override the css, 
 so by just editing the data and not having to recompile the site you can get lots of different looks,
 and different collection and item data too.
-![Simple CUDL Dependency Graph Example.svg](images%2FSimple%20CUDL%20Dependency%20Graph%20Example.svg)
 ![differentdata.png](images%2Fdifferentdata.png)
 ## Getting Started
 
