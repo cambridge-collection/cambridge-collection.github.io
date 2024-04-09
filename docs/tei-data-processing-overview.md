@@ -1,8 +1,8 @@
-TEI Data Processing Overview
+# TEI Data Processing Overview
 
 All outputs generated from TEI source files are created by our TEI Data Processing pipeline (<https://github.com/cambridge-collection/cudl-data-processing-xslt>).
 
-The pipeline is dockerised. It can be run locally, in an AWS lambda or within a CI/CD system. It uses Apache Ant (<https://ant.apache.org/>) to run the necessary XSLT transforms to create the output files.
+The pipeline is dockerised. It can be run in an AWS lambda, locally or within a CI/CD system. It uses Apache Ant (<https://ant.apache.org/>) to run the necessary XSLT transforms to create the output files.
 
 ## Overview of the phases of the data build
 
@@ -30,15 +30,15 @@ It can either result in either repeated code fragments that become progressively
 
 CDCP aims to manage this complexity in two ways. The creation of centralised library for accessing and processing all data makes it easier to ensure that any changes required to reflect new TEI coding styles or improve the output are consolidated in one place.
 
-While a centralised library can help prevent the rise of scissors and paste code, it still poses several challenges when operating at scale over hundreds of thousands of items. Some processes, such as the one that determines whether a page contains content or not, take an appreciable amount of resources to run. While the implications of this aren’t overly noticeable when run once on a single document, the time and cost implications are appreciable when run on hundreds of thousands of documents and millions of pages.
+While a centralised library can help prevent the rise of scissors and paste code, it still poses several challenges when operating at scale over hundreds of thousands of items. Some processes, such as the one that determines whether a page contains content or not, take an appreciable amount of resources to run. Many of these actions would need to be performed for each output file. While the cost/time implications of doing so  aren’t onerous when processing a single document, they are appreciable when run on more complex materials or larger batches of files.
 
-To remedy these problems of scale, CDCP’s TEI Data Processing pipeline operates on the principle that raw data should be processed as few times as possible. We, consequently, generate a consolidated XML file, encoded according to the W3C schema for representing JSON, that contains all the processed metadata, and page transcriptions and translations for each item in our collection. These consolidated XML files contain the cleaned data necessary to generate all derivative views for our core outputs. 
+CDCP’s TEI Data Processing pipeline remedies these issues by operating on the principle that raw data should be processed as few times as possible. It generates a XML file, encoded according to the W3C schema for representing JSON, that consolidates all the processed metadata, and page transcriptions and translations for each item in our collection. These consolidated XML files contain the cleaned data necessary to generate all derivative views for our core outputs quickly and efficiently.
 
 ### Generation of derivative views for downstream services
 
-The final phase of the process generates the derivative views of the data used by other services within the CDCP ecosystem, like the json that is indexed by SOLR (our search engine) or used by the viewer. Cambridge’s build creates an additional JSON file for use by the pipeline that automatically commits our TEI transcriptions into our Data Preservation system.
+The final phase of the process generates the derivative views of the data used by other services within the CDCP ecosystem, like the json that is indexed by SOLR (our search engine) or used by the viewer. Cambridge’s build creates an additional JSON file for use by the pipeline that ingests CDL TEI transcriptions into our Data Preservation system.
 
-The files required to generate the XSLT files that generate these are small, ranging from 800 bytes to 11K. The actions that take place within these files typically concern the removal of data that isn’t relevant to that particular view. That means that helps keep the finished resources as slim as possible.
+The XSLT files required to generate these outputs are small, ranging from 800 bytes to 11K, and do not require any costly data analysis/processing.
 
 ### Copy Output to user-specified locations
 
