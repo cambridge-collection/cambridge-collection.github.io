@@ -33,6 +33,7 @@ Instructions to [Install Docker Engine on Ubuntu](https://docs.docker.com/engine
 
 - GitHub access
 
+Github is used for some of the dependent libraries. 
 In order to connect to GitHub securely, configure your account to use a new (or existing) SSH key and add it to your account. [Instructions are on GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account/).
 
 ## Dependencies
@@ -114,12 +115,6 @@ with a GitHub Personal Access Token (classic, not fine-grained) with repo and pa
 
   https://github.com/cambridge-collection/cudl-viewer.git
 
-NOTE: If you have problems cloning the repo, you may need to comment out the
-**[submodule "docker/db/snapshots"]** parts of the .gitmodules file.
-
-Also, we recommend you use the **iiif_images_2023** branch from git as this one 
-supports IIIF images in the main view winidow.  The main branch is still using dzi format
-images which will be phased out soon.
 
 ### Setup sample data
 
@@ -131,21 +126,19 @@ Ordinarily, you should not need to change this config to get the viewer running 
 The sample data is linked as a git submodule of the cudl-viewer, so we need to initalise
 it and download the data.  Do this with the following commands:
 
-    $ git submodule init docker/db/dl-data-samples
-    $ git submodule update --remote --merge docker/db/dl-data-samples
+    $ git submodule init data/dl-data-samples
+    $ git submodule update --remote --merge data/dl-data-samples
 
 Check the git submodules are present: dl-data-samples should be at:
 
-    docker/db/dl-data-samples
+    data/dl-data-samples
 
 The sample data is a small sample data set containing:
    - TEI
    - JSON
-   - TIFF images (blank samples)
-   - DATABASE export
+   - images
    - HTML CONTENT
-   
-  
+
 ### Maven Build   
    Open a shell on your machine, or a Terminal in your prefered IDE (e.g. IntelliJ IDEA).
    
@@ -187,6 +180,8 @@ The sample data is a small sample data set containing:
 
 ## Image Server
 
+
+
 The image server that zoomable image tiles come from is configured in the `cudl-global.properties`
 file. This can be altered by changing the `IIIFImageServer` and `imageServer` properties.  
 We are using the IIIF image server [IIPImage](https://iipimage.sourceforge.io/). 
@@ -197,7 +192,7 @@ We are using the IIIF image server [IIPImage](https://iipimage.sourceforge.io/).
 ## Using your own data
 
 Once you have the viewer working on your system you can take a look at the sample
-data. It's using under the directory `docker/db/dl-data-samples` where there
+data. It's using under the directory `data/dl-data-samples` where there
 are two directories:
 
     source-data 

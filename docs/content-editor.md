@@ -1,6 +1,6 @@
 # Responsive Data Editing
 
-## The metadata editor
+## The Metadata Editor
 
 In order to allow users to easily create and edit the content within the DL, we created the
 Content Editor.  This provides an intuitive interface to edit Collections and Items.  It uses the
@@ -20,7 +20,7 @@ includes transcription, collection and item edits.  This allows users to easily 
 
 ## Under the hood
 
-The Java editor webapp that provides this interface can be found at:
+The Java content editor webapp that provides this interface can be found at:
 
 [https://github.com/cambridge-collection/dl-loading-ui](https://github.com/cambridge-collection/dl-loading-ui)
 
@@ -29,22 +29,16 @@ soon as the data is saved, it takes only a couple of seconds for the data to be 
 converted from the stable and human readable source data format, into the format useable by the viewer.
 It uses the process below:
 
-![](images/CUDL_data_processing v2.jpg)
+![](images/CUDL_data_processing_v5.svg)
 
 The lambda code that performs the data conversion shown in yellow can be found here:
 
-[https://github.com/cambridge-collection/data-lambda-transform](https://github.com/cambridge-collection/data-lambda-transform)
+[https://github.com/cambridge-collection/xslt-transformation-engine](https://github.com/cambridge-collection/xslt-transformation-engine)
+with further small bits of processing done by - [https://github.com/cambridge-collection/data-lambda-transform](https://github.com/cambridge-collection/data-lambda-transform)
 
-using the layer xslt data from here:
-
+Or if you want to convert your data directly using XSLT you can find it here:
 [https://github.com/cambridge-collection/cudl-data-processing-xslt](https://github.com/cambridge-collection/cudl-data-processing-xslt)
 
-### Terraform
-The process above, including the SNS, SQS, lambda functions etc can be created by running the Terraform script at:
-
-[https://github.com/cambridge-collection/cudl-terraform](https://github.com/cambridge-collection/cudl-terraform)
-
-There is separate configuration for creating dev, staging and production versions of the processing.
 
 ## Deployment 
 
@@ -58,7 +52,7 @@ It is controlled separately so only users specifically granted deployment permis
 ## Bulk Data Editing
 
 It is not always sensible to individually edit items through an interface like this, in some cases we may want to 
-script the ingest of item data, or bulk update items and collections.
+script ingest of item data, or bulk update items and collections.
 
 In this case the source data follows the schema defined below:
 

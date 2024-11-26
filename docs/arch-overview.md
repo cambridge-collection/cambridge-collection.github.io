@@ -9,13 +9,14 @@ application to read.
 
 ![CDCP Intro data.svg](images%2FCDCP%20Intro%20data.svg)
 
-This is done using our AWS pipeline (see [https://github.com/cambridge-collection/cudl-terraform](https://github.com/cambridge-collection/cudl-terraform)
-or you can use our XSLT and build your own pipeline [https://github.com/cambridge-collection/cudl-data-processing-xslt](https://github.com/cambridge-collection/cudl-data-processing-xslt)).
-
+See our [tei-data-processing-overview](tei-data-processing-overview.md) for more details on how this is done.
+ 
 The processed data is read by a number of applications, which provide the functionality 
-for the viewer. (NOTE: Currently there is also a small DB, but this will be retired soon).
+for the viewer.
 
 ![CDCP Intro applications (1).svg](images%2FCDCP%20Intro%20applications%20%281%29.svg)
+
+More details can be found on [the Solr stack](the-solr-stack.md).
 
 What does the data look like?  It has a simple hierarchy and is easy to read JSON data, with 
 item data in TEI. A collection can have multiple items, and items can be in more than one collection.
@@ -29,21 +30,19 @@ and different collection and item data too.
 ## Getting Started
 
 Have a look at the cudl-viewer repo: [https://github.com/cambridge-collection/cudl-viewer](https://github.com/cambridge-collection/cudl-viewer)
-We still have some work to get an easy all in one build, so you may have a talk to us so we can let you know which branch to use. 
-But you should be able to start up with the test data on the main branch.
+and some [instructions on setting up a local version of the viewer](setup-local-viewer.md) to try out. 
 
-For more details see: [setup-local-viewer.md](setup-local-viewer.md)
+Or if you want to go further and build a full platform on AWS you can take a look at our [Terraform instructions](https://github.com/cambridge-collection/cudl-terraform). 
 
-## OPTIONAL Enhancements
+## Optional Enhancements
 
 We also have a content loader which edits the data in the source folder, allowing non-expert users 
 to edit items and collections and these changes are reflected a few seconds later on the processed data + 
-linked viewer website. See our [content-editor.md](content-editor.md) section for more info.
+linked viewer website. See our [content-editor](content-editor.md) section for more info.
 
 ![CDCP Intro - Content loader (1).svg](images%2FCDCP%20Intro%20-%20Content%20loader%20%281%29.svg)
 
-We also have an extension to the processing flow to allow automatic generation of transcriptions by using the 
-IIIF manifest the platform provides to read into the Transkribus Expert client, and export in TEI 
-format.  Code for this is also under our pipeline terraform: [https://github.com/cambridge-collection/cudl-terraform](https://github.com/cambridge-collection/cudl-terraform)
+We also have an extension to the processing flow to allow automatic generation of transcriptions by [Transkribus](https://www.transkribus.org/).
+Code for this is also under our Terraform repository: [https://github.com/cambridge-collection/cudl-terraform](https://github.com/cambridge-collection/cudl-terraform)
 
 ![CDCP Intro - Transkribus.svg](images%2FCDCP%20Intro%20-%20Transkribus.svg)

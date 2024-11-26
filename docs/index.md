@@ -1,6 +1,6 @@
 # Cambridge Digital Collection Platform Documentation
 
-Welcome to the code repository for Cambridge Digital Collection Platform. 
+Welcome to the code repository for [Cambridge Digital Collection Platform](https://community.cdcp.info/space/CDCP/1900753/Cambridge+Digital+Collection+Platform). 
 
 This houses the code for projects developed by the teams at the Cambridge University Library including
 Cambridge Digital Collection Platform which underpins the [Cambridge Digital Library](https://cudl.lib.cam.ac.uk), 
@@ -9,10 +9,7 @@ among others. It is a platform that takes source metadata and images and
 provides a system for processing these into a website for display and discovery, 
 with [IIIF](https://iiif.io) capability.
 
-These documents are constantly being updated and reviewed. 
-At the moment they are fairly minimal, but we are 
-planning on adding to them, and welcome any contributions both to the code and to the documentation.
-
+![CDCP_default.png](images/CDCP_default.png)
 ## What are all these repositories for?
 
 Take a look at the
@@ -24,11 +21,14 @@ The [content-editor](content-editor.md) shows how the data is loaded into the sy
 
 ## Where do I get started?
 
-First take a look at our guide to [setting up a local viewer version](setup-local-viewer.md) using docker-compose. 
+First why not try out our viewer.  Take a look at our guide to [setting up a local viewer version](setup-local-viewer.md). 
 This will get a local version of the platform on your local machine.
 
 After you may want to look at the instructions on [setting up a local image server](setup-local-image-server.md).
-and connecting it to the viewer. 
+and connecting it to the viewer.
+
+If you want to look at installing a full version of the platform, we have [Terraform instructions](https://github.com/cambridge-collection/cudl-terraform)
+which will setup the whole architecture with one command, on an AWS account. 
 
 ## Contributions
 Why not help us out by getting involved and contributing, we welcome pull requests for code or documentation.  

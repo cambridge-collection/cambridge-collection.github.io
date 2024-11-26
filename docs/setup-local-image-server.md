@@ -1,11 +1,5 @@
 # Setting up a local image server
 
-## Before you start
-
-The cudl-viewer will need to be using the [iiif_images_2023 branch](https://github.com/cambridge-collection/cudl-viewer/tree/iiif_images_2023) from git
-as this uses IIIF images in the main document view window instead of the older DZI format
-which we're phasing out.
-
 ## Requirements
 
 You will need a IIIF image server setup. We're using the [IIPImage server](https://iipimage.sourceforge.io/) which is installed using the 
