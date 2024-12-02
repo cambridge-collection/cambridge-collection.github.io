@@ -27,8 +27,10 @@ This will get a local version of the platform on your local machine.
 After you may want to look at the instructions on [setting up a local image server](setup-local-image-server.md).
 and connecting it to the viewer.
 
+## Deploying to AWS
+
 If you want to look at installing a full version of the platform, we have [Terraform instructions](https://github.com/cambridge-collection/cudl-terraform)
-which will setup the whole architecture with one command, on an AWS account. 
+which will setup the whole architecture with one command, on an AWS account. For guidance on how to deploy services see [deploying to AWS](deployments-aws.md).
 
 ## Contributions
 Why not help us out by getting involved and contributing, we welcome pull requests for code or documentation.  
